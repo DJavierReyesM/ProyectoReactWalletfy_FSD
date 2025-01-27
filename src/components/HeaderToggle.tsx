@@ -1,4 +1,25 @@
+import { useAppDispatch } from "@hooks/store";
+import React from "react";
+import { themeAction } from "@store/slice/theme";
+
+
 const HeaderToggle = () => {
+
+    const dispatch = useAppDispatch();
+
+    React.useEffect(() => {
+        const theme = localStorage.getItem('schema') as 'light' | 'dark' | null;
+        if (theme) {
+            dispatch(themeAction.setTheme('dark'));
+            if (theme === 'dark') {
+                document.body.classList.remove('light');
+            } else {
+                document.body.classList.add('light');
+            }
+        }
+
+    }, [])
+  
     return (
         <header className="absolute top-0 left-0 w-full px-[1rem] py-[0.75rem] dark:border-zinc-800 dark:bg-zinc-800 flex justify-between items-center shadow-md">
         <a href="/" className="text-2xl font-bold text-black dark:text-white">

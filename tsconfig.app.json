@@ -33,6 +33,8 @@
     "@utils/*": ["src/utils/*"],
     "@hooks/*": ["src/hooks/*"],
     "@test/*": ["src/test/*"],
+    "@store/*": ["src/store/*"],
+    "@types/*": ["src/types/*"]
     }
   },
   "include": ["src"]
