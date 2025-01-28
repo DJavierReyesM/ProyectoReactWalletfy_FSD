@@ -46,9 +46,9 @@ const Layout = () => {
               <img
                 width="20"
                 height="20"
-                src={currentTheme === 'dark'
-                   ? "https://img.icons8.com/ios-filled/50/crescent-moon.png" 
-                   : "https://img.icons8.com/?size=100&id=9313&format=png&color=FAB005"}
+                src={currentTheme === 'dark' 
+                   ? "https://img.icons8.com/?size=100&id=9313&format=png&color=FAB005" 
+                   : "https://img.icons8.com/ios-filled/50/crescent-moon.png"}
                 alt={currentTheme === 'dark' ? "crescent-moon": "sun"}
               />
             </span>
