@@ -1,6 +1,5 @@
 import { z } from "zod";
 
-
 export const EventSchema = z.object({
     id: z.string().uuid({ message: "Id inválido"}),
     name: z.string()
