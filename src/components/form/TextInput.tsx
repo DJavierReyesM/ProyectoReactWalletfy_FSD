@@ -1,6 +1,6 @@
 import React from 'react';
 
-type InputProps = {
+type TextInputProps = {
   label: string;
   value: string;
   error?: string;
@@ -8,7 +8,7 @@ type InputProps = {
   onChange: (value: string) => void;
 };
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>((props, ref) => {
   const { label, value, error, onChange, className } = props;
 
   return (
@@ -28,4 +28,4 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   );
 });
 
-export default Input;
+export default TextInput;
