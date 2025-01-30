@@ -1,4 +1,5 @@
 import moment from 'moment';
+import React from 'react';
 
 type DateProps = {
   label: string;
@@ -10,7 +11,7 @@ type DateProps = {
 
 const DateInput = (props: DateProps) => {
   const { label, value, error, onChange, className } = props;
-
+  React.useEffect(()=>{console.log(value)},[value])
   return (
     <div className={className}>
       <label className="block text-sm font-medium text-gray-700">

@@ -34,7 +34,8 @@
     "@hooks/*": ["src/hooks/*"],
     "@test/*": ["src/test/*"],
     "@store/*": ["src/store/*"],
-    "@types/*": ["src/types/*"]
+    "@types/*": ["src/types/*"],
+    "@constants/*": ["src/constants/*"],
     }
   },
   "include": ["src"]

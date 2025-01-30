@@ -15,7 +15,11 @@ export default defineConfig({
       '@pages': resolve(__dirname, './src/pages'),
       '@store': resolve(__dirname, './src/store'),
       '@types': resolve(__dirname, './src/types'),
-      '@hooks': resolve(__dirname, './src/hooks')
+      '@hooks': resolve(__dirname, './src/hooks'),
+      '@constants': resolve(__dirname, './src/constants'),
+      '@customTypes': resolve(__dirname, './src/types'),
+      '@utils': resolve(__dirname, './src/utils'),
+      '@api': resolve(__dirname, './src/api'),
     },
   }
 })

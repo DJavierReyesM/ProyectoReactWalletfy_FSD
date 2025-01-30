@@ -8,8 +8,8 @@ export const EventSchema = z.object({
     description: z.string()
         .max(100, 'La descripción debe tener a lo mucho 100 caracteres')
         .optional(),
-    amount: z.number().int().nonnegative("La cantidad debe ser de al menos 1"),
-    date: z.date({ message: "La fecha es requerida."}),
+    amount: z.number().int().positive("La cantidad debe ser de al menos 1"),
+    date: z.number({ message: "La fecha es requerida."}),
     type: z.enum(["ingreso", "egreso"], {
         errorMap: () => ({ message: 'Tipo de evento no válido' })
     })
