@@ -117,12 +117,12 @@ const UserForm = () => {
   const isLoadingQuery = isLoadingOrRefetchQuery(userQuery);
 
   return (
-    <div>
+    <div className='flex flex-col justify-center items-center gap-4'>
       {!isLoadingQuery && (
-        <div className="flex items-center gap-4">
-          <div
-            className="text-blue-500 cursor-pointer w-[25px] h-[25px]"
+        <div className="flex w-full items-center">
+          <button
             onClick={() => navigate('/')}
+            className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-700 flex"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -138,8 +138,8 @@ const UserForm = () => {
                 d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
               />
             </svg>
-          </div>
-          <h1 className="text-4xl font-bold">{mode === 'create' ? "Crear evento" : "Actualizar evento"}</h1>
+            <h3 className="text-md text-center font-medium px-2">Volver</h3>
+          </button>
         </div>
       )}
 
@@ -148,8 +148,10 @@ const UserForm = () => {
       )}
 
       {!isLoadingQuery && (
+        <div className='className="h-full w-full md:w-[35%] gap-y-[1rem]'>
+         <h1 className="text-4xl text-center font-bold">{mode === 'create' ? "Crear evento" : "Actualizar evento"}</h1>
         <form
-          className="flex flex-col gap-4"
+          
           onSubmit={
             formEventFormat.handleSubmit((data)=>{
               if (mode === 'edit' && id) {
@@ -167,6 +169,7 @@ const UserForm = () => {
                 label="Nombre"
                 value={field.value}
                 onChange={field.onChange}
+                className='my-3'
                 error={formEventFormat.formState.errors.name?.message}
               />
             )}
@@ -180,6 +183,7 @@ const UserForm = () => {
                 label="Descripción"
                 value={field.value ? field.value : ""}
                 onChange={field.onChange}
+                className='my-3'
                 error={formEventFormat.formState.errors.description?.message}
               />
             )}
@@ -193,6 +197,7 @@ const UserForm = () => {
                 label="Date"
                 value={field.value}
                 onChange={field.onChange}
+                className='my-3'
                 error={formEventFormat.formState.errors.date?.message}
               />
             )}
@@ -206,6 +211,7 @@ const UserForm = () => {
                 label="Date"
                 value={field.value}
                 onChange={field.onChange}
+                className='my-3'
                 error={formEventFormat.formState.errors.amount?.message}
               />
             )}
@@ -220,18 +226,23 @@ const UserForm = () => {
                 value={field.value}
                 options={['ingreso', 'egreso']}
                 onChange={field.onChange}
+                className='my-3'
                 error={formEventFormat.formState.errors.type?.message}
               />
             )}
           />
-
-          <button
-            className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-700"
-            type="submit"
-          >
-            {isLoadingForm ? 'Guardando...' : mode === 'create' ? "Crear evento" : "Actualizar evento"}
-          </button>
+          <div className='flex justify-center my-3 py-2'>
+            <button
+              className={`px-4 py-2 text-white 
+                ${mode === 'create' ?  
+                "bg-green-700 rounded-md hover:bg-green-950"  :  "bg-blue-500 rounded-md hover:bg-blue-700 "}`}
+              type="submit"
+            >
+              {isLoadingForm ? 'Guardando...' : mode === 'create' ? "Crear evento" : "Actualizar evento"}
+            </button>
+          </div>
         </form>
+        </div>
       )}
     </div>
   );
