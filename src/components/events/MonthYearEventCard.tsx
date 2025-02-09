@@ -12,13 +12,15 @@ type MonthYearEventCardProps = {
 const MonthYearEventCard = (props: MonthYearEventCardProps) => {
     const { monthYear, events } = props;
     const [year, month] = monthYear.split("-");
+
+    const orderedEvents = [...events].sort((a, b) => b.date - a.date);
     return (
         <div key={monthYear} className=" dark:bg-zinc-800 dark:text-gray-200 dark:border-zinc-700 shadow-lg rounded-lg p-4 border border-zinc-300">
             <h2 className="px-3 text-lg font-bold text-blue-700 dark:text-blue-300 py-1 border-b-1 border-gray-400 dark:border-zinc-500">
                 {getMonthName(Number(month))} {year}
             </h2>
             <div className="mt-2 space-y-2">
-                {events.map((event, index) => (
+                {orderedEvents.map((event, index) => (
                     <div key={event.id}>
                         <div
                             className={`dark:bg-zinc-800 py-1 dark:text-gray-200 dark:border-zinc-700 rounded-md px-3 
