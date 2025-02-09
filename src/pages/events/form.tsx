@@ -144,12 +144,12 @@ const UserForm = () => {
       )}
 
       {isLoadingQuery && (
-        <p className="text-2xl font-bold text-center">Cargando formulario</p>
+        <p className="text-2xl font-bold text-center text-gray-700 dark:text-gray-200">Cargando formulario</p>
       )}
 
       {!isLoadingQuery && (
         <div className='h-full w-full md:w-[35%] gap-y-[1rem]'>
-         <h1 className="text-4xl text-center font-bold">{mode === 'create' ? "Crear evento" : "Actualizar evento"}</h1>
+         <h1 className="text-3xl text-center font-bold  text-gray-700 dark:text-gray-200">{mode === 'create' ? "Crear evento" : "Actualizar evento"}</h1>
         <form
           
           onSubmit={

@@ -55,7 +55,7 @@ const Layout = () => {
           </button>
         </div>
       </header>
-      <div className="h-full w-full px-[2rem] pt-[4rem] flex flex-col justify-center">
+      <div className="dark:bg-zinc-900 h-full w-full px-[2rem] pt-[4rem] flex flex-col justify-center">
         <Outlet />
       </div>
     </div>
