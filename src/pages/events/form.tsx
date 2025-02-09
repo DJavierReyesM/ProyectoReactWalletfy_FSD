@@ -117,7 +117,7 @@ const UserForm = () => {
   const isLoadingQuery = isLoadingOrRefetchQuery(userQuery);
 
   return (
-    <div className='flex flex-col justify-center items-center gap-4'>
+    <div className='flex flex-col justify-center items-center gap-4 w-full'>
       {!isLoadingQuery && (
         <div className="flex w-full items-center">
           <button
@@ -148,7 +148,7 @@ const UserForm = () => {
       )}
 
       {!isLoadingQuery && (
-        <div className='className="h-full w-full md:w-[35%] gap-y-[1rem]'>
+        <div className='h-full w-full md:w-[35%] gap-y-[1rem]'>
          <h1 className="text-4xl text-center font-bold">{mode === 'create' ? "Crear evento" : "Actualizar evento"}</h1>
         <form
           
@@ -194,7 +194,7 @@ const UserForm = () => {
             control={formEventFormat.control}
             render={({ field }) => (
               <DateInput
-                label="Date"
+                label="Fecha"
                 value={field.value}
                 onChange={field.onChange}
                 className='my-3'
@@ -208,7 +208,7 @@ const UserForm = () => {
             control={formEventFormat.control}
             render={({ field }) => (
               <NumberInput
-                label="Date"
+                label="Cantidad ($)"
                 value={field.value}
                 onChange={field.onChange}
                 className='my-3'
@@ -222,7 +222,7 @@ const UserForm = () => {
             control={formEventFormat.control}
             render={({ field }) => (
               <SelectInput
-                label="Role"
+                label="Tipo"
                 value={field.value}
                 options={['ingreso', 'egreso']}
                 onChange={field.onChange}

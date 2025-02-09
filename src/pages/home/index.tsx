@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { EventLoaderDataType } from "@customTypes/event";
+import { EventLoaderDataType, EventType } from "@customTypes/event";
 import { QKeys } from "@constants/query";
 import DataRepo from "@api/datasource";
 import { isLoadingOrRefetchQuery } from "@utils/query";
@@ -7,6 +7,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@hooks/store";
 import { amountAction, selectInitialAmount } from "@store/slice/initialAmount";
+import moment from "moment";
+import GroupedEvents from "@components/events/GroupedEvents";
 
 const Home = () => {
 
@@ -29,12 +31,24 @@ const Home = () => {
 const { data } = usersQuery;
 
 const isLoading = isLoadingOrRefetchQuery(usersQuery);
+let eventosFiltrados = {} as Record<string, EventType[]>;
 
+const groupEventsByMonthAndYear = (events: EventType[]) => {
+  return events.reduce((acc, event) => {
+    const formattedDate = moment.unix(event.date).format("YYYY-MM"); // "2024-12"
+    if (!acc[formattedDate]) acc[formattedDate] = [];
+    acc[formattedDate].push(event);
+    return acc;
+  }, {} as Record<string, EventType[]>);
+};
 
-console.log(data)
+if (data?.events) {
+  eventosFiltrados = groupEventsByMonthAndYear(data.events);
+}
+  console.log(eventosFiltrados)
   return (
-    <div className="flex items-center flex-col gap-y-[4rem] h-full mt-[3rem]">
-      <div className="gap-1.5 w-full flex flex-row justify-between items-end">
+    <div className="flex items-center flex-col gap-y-[2rem] h-full mt-[2rem]">
+      <div className="gap-10 w-full flex flex-row justify-between items-end">
         <div>
           <h3 className="text-md font-medium text-gray-700">Balance inicial: ${currentAmount}</h3>
           <div className="flex flex-col sm:flex-row md:flex-row ">
@@ -77,12 +91,14 @@ console.log(data)
 
       {!isLoading && data && (
         <>
-        <div>My value is {currentAmount}</div>
-        <div>{data.events.map((evt) => (
-          <div className="py-3">
-            Evento: {evt.name}
+          <div>
+            <p className="text-lg my-2">
+              {data.events.length === 0
+                ? 'No hay eventos creados'
+                : `Hay ${data.events.length} eventos`}
+            </p>
+            <GroupedEvents groupedData={eventosFiltrados} />
           </div>
-        ))}</div>
         </>
       )}
 
