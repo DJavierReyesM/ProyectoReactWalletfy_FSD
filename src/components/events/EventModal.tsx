@@ -1,6 +1,6 @@
 // Modal.tsx
 import React from 'react';
-import ImageUploader from './ImageUploader';
+import ImageUploader from '../form/ImageInput';
 
 interface ModalProps {
   isOpen: boolean;

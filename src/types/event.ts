@@ -12,7 +12,12 @@ export const EventSchema = z.object({
     date: z.number({ message: "La fecha es requerida."}),
     type: z.enum(["ingreso", "egreso"], {
         errorMap: () => ({ message: 'Tipo de evento no válido' })
-    })
+    }),
+    image: z.string().optional().refine((val) => {
+        return val ? val.trim().length > 0 : true;
+      }, {
+        message: "No se pudo subir la imagen. Intenta de nuevo.",
+      }),
 })
 
 export type EventType = z.infer<typeof EventSchema>;

@@ -17,6 +17,7 @@ import TextInput from '@components/form/TextInput';
 import DateInput from '@components/form/DateInput';
 import SelectInput from '@components/form/SelectInput';
 import NumberInput from '@components/form/NumberInput';
+import ImageInput from '@components/form/ImageInput';
 
 
 type Params = {
@@ -29,6 +30,7 @@ const INITIAL_STATE: EventCreateType = {
   date: moment().unix(),
   description: '',
   type: "ingreso",
+  image: '',
 };
 
 const UserForm = () => {
@@ -231,7 +233,22 @@ const UserForm = () => {
               />
             )}
           />
-          <div className='flex justify-center my-3 py-2'>
+
+            <Controller
+              name='image'
+              control={formEventFormat.control}
+              render={({ field }) => (
+                <ImageInput
+                  label="Imagen"
+                  value={field.value || ''}
+                  onChange={field.onChange}
+                  className='my-3'
+                  error={formEventFormat.formState.errors.image?.message}
+                />
+              )}
+            />
+
+          <div className='flex justify-center my-3 py-2 mt-10'>
             <button
               className={`px-4 py-2 text-white 
                 ${mode === 'create' ?  

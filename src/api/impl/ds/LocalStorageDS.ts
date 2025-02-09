@@ -57,13 +57,10 @@ class LocalStorageDS extends DataDS {
 
       const events = this.getEvents();
 
-      const newEvents: EventType[] = events;
+      const newEvents: EventType[] = [{...event, id:uuid()}, ...events]
 
-      newEvents.unshift({
-        ...event,
-        id: uuid(),
-      });
-
+    
+      console.log(newEvents)
       localStorage.setItem(EVENT_KEY, JSON.stringify(newEvents));
     } catch (error) {
       console.error(error);
