@@ -55,7 +55,7 @@ const EventModal = (props: EventModalProps) => {
             Cerrar
           </button>
           <button
-            className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-gren-600"
+            className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
             onClick={() => {
               if (confirm('¿Está seguro de editar el evento?') && id) {
                     navigate(`/form/${id}`)

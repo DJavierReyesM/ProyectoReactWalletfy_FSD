@@ -27,6 +27,8 @@ const ImageInput = (props: ImageInputProps) => {
         }
       };
       reader.readAsDataURL(file);
+    } else {
+      setImageName("Sin imagen seleccionada");
     }
   };
 
@@ -53,7 +55,7 @@ const ImageInput = (props: ImageInputProps) => {
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">
             Preview de imagen:
           </label>
-          {imageName && (<p className='text-sm font-medium text-gray-700 dark:text-gray-200'>'{imageName}'</p>)}
+          {imageName && (<p className='text-sm text-center font-medium text-gray-700 dark:text-gray-200'>'{imageName}'</p>)}
           <img src={value} alt="Preview de imagen" className="mt-2 w-20 h-20 " />
         </div>
 
