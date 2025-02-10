@@ -11,7 +11,7 @@ const Layout = () => {
     const storedTheme = localStorage.getItem('schema');
     const theme = storedTheme === 'dark' || storedTheme === 'light' ? storedTheme : 'light';
     dispatch(themeAction.setTheme(theme));
-    if (theme === 'dark') {
+    if (theme === 'light') {
       document.body.classList.add('dark');
     } else {
       document.body.classList.remove('dark');
@@ -19,14 +19,7 @@ const Layout = () => {
   }, [])
 
   const toggleDarkMode = () => {
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    localStorage.setItem('schema', newTheme);
     dispatch(themeAction.toggleTheme())
-    if (newTheme === 'dark') {
-      document.body.classList.add('dark');
-    } else {
-      document.body.classList.remove('dark');
-    }
   };
 
   return (

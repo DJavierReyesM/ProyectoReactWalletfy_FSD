@@ -47,7 +47,7 @@ if (data?.events) {
 }
   console.log(eventosFiltrados)
   return (
-    <div className="flex items-center flex-col gap-y-[2rem] h-full mt-[2rem]">
+    <div className="flex items-center flex-col gap-y-[1rem] h-full mt-[2rem]">
       <div className="gap-10 w-full flex flex-row justify-between items-end">
         <div>
           <h3 className="text-md font-medium text-gray-700 dark:text-gray-200">Dinero inicial: ${currentAmount}</h3>
@@ -56,7 +56,7 @@ if (data?.events) {
               type="number"
               value={initialBalance}
               min={0}
-              className="my-1 block w-full px-3 py-2 border dark:bg-zinc-800 dark:text-gray-200 dark:border-zinc-700 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="my-1 block w-full px-3 py-2 border bg-white dark:bg-zinc-800 dark:text-gray-200 dark:border-zinc-700 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               onChange={(e) => {
                 const newValue = Number(e.target.value);
                 if (isNaN(newValue)) return;
@@ -90,7 +90,7 @@ if (data?.events) {
       )}
 
       {!isLoading && data && (
-        <>
+        <React.Fragment>
           <div className="w-full">
             <p className=" font-semibold  text-gray-700 dark:text-gray-200">
               {data.events.length === 0
@@ -100,7 +100,7 @@ if (data?.events) {
           </div>
 
           <GroupedEvents groupedData={eventosFiltrados} />
-        </>
+        </React.Fragment>
       )}
 
     </div>

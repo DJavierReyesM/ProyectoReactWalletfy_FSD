@@ -14,8 +14,15 @@ export const themeSlice = createSlice({
     setTheme: (state, action: PayloadAction<Theme['schema']>) => {
       state.schema = action.payload;
     },
+
     toggleTheme: (state) => {
       state.schema = state.schema === 'light' ? 'dark' : 'light';
+      localStorage.setItem('schema', state.schema);
+      if (state.schema === 'light') {
+        document.body.classList.add('dark');
+      } else {
+        document.body.classList.remove('dark');
+      }
     },
   },
 });
