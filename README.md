@@ -46,7 +46,22 @@ creamos convenientes de nuestro evento
 En la siguiente imagen se encuentra
 ![Carpetas](/public/ReadmeImages/Carpetas.PNG)
 
+La carpeta `api` contiene una serie de modulos que manejan toda la lógica de acceso a los eventos guardados en la base de datos (que en este caso es el localStorage). En esta se implementa DataSource repository como un patrón para poder modularizar y abstraer la complejidad al interactuar con la base de datos.
 
+`components` contiene los diversos componentes que utilizarán nuestras vistas en la aplicación, principalmente los eventos, y aquellos componentes del formulario
+
+`constanst` contiene constantes usadas por el código, mientras que `hooks` implementaciones de Hooks de ReactJS para facilitar su uso dentro de los componentes.
+
+`pages` contiene las diversas páginas de nuestra aplicación a ser renderizadas
+
+`store` contiene los archivos esenciales para gestionar las sesiones de Redux mediantes slices de código, en donde se manejan principalmente los slices para: El tema oscuro y el monto inicial del wallet.
+
+`types` contiene los tipos de datos usados por los componentes para asegurar un buen tipado de datos.
+
+`main.tsx` contiene la lógica principal de la aplciación, donde se crea el elemento root con los providers de las librerías, así como el Router para manejar las rutas de nuestra aplicación
+
+La aplicación fue desarrollada en Typescript con Vite, usando librerías como TailwindCSS, MomentJS, Redux, React Hook Forms, etc.
+Por lo que se recomienda analizar las versiones más recientes (y estables de las liberías para poder)
 ## 2.- Ejecución:
 
 Pasos a seguir para ejecutar el código de manera local
