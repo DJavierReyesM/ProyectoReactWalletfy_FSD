@@ -12,11 +12,44 @@ Autores:
 ## 1.- Descripción de aplicación:
 El Presente proyecto se denomina "Walletfy", un aplicación que simula una billetera o wallet en donde el usuario puede registrar un dínero inicial así como también registrar sus eventos de ingresos o egresos, agrupados por mes y año; lo cual permitirá visualizar todo el flujo de eventos a lo largo del tiempo.
 
+## Aplicación:
+En la vista de inicio vemos el logo de la aplicación dentro del header, y en el otro extremo de este tenemos el botón que nos permitirá alternar entre el modo oscuro y modo claro.
+![W1](/public/ReadmeImages/InicioLight.PNG)
+![W2](/public/ReadmeImages/InicioDark.PNG)
+
+Asimismo se puede visualizar un campo de "Dinero inicial que nos permitirá agregar el monto inicial en nuestra billetera. Por otro lado se logra ver a los eventos agrupados por año y mes, destacando con colores si el evento fue de ingreso o egreso, con el detalle del monto mensual y global (calculado a partir del dinero inicial)
+
+![W3](/public/ReadmeImages/Events.PNG)
+
+Por otro lado hay un botón para "crear un evento" que nos lleva a un formulario donde podremos ingresar nueva información de los eventos que podremos crear. A la vez que hay un botón para volver a la vista de inicio.
+
+![WCreate](/public/ReadmeImages/Crear.PNG)
+
+Si nuestro formulario tiene información que faltante, este remarcará con mensajes de error que falta información para crear/editar el evento.
+
+![WError](/public/ReadmeImages/FormError.PNG)
+
+Si se asoma el ratón/mouse por encima de un evento, este se resaltará mostrando un "tooltip" con la descripción del evento, una imagen (si el evento la tuviese), y una indicación que comenta que si se le da clic se detallará más la información del evento
+
+![W4](/public/ReadmeImages/Tooltip.PNG)
+
+Al dar clic se abrirá una ventana modal con el detalle del evento con 2 botónes uno para cerrar y otro para editar el evento.
+
+![W5](/public/ReadmeImages/Modal.PNG)
+
+Si se da clic en editar, la vista del formulario cambiará a modo de edición para poder cambiar los detalles que
+creamos convenientes de nuestro evento
+
+![W6](/public/ReadmeImages/Editar2.PNG)
+
 ### Estructura de Código:
+En la siguiente imagen se encuentra
+![Carpetas](/public/ReadmeImages/Carpetas.PNG)
 
-## 2.- Ejecución de manera local
 
-Pasos a seguir
+## 2.- Ejecución:
+
+Pasos a seguir para ejecutar el código de manera local
 1. Clonar el repositorio remoto usando el comando git clone:
 ```bash
 git clone https://github.com/DJavierReyesM/ProyectoReactWalletfy_FSD.git
@@ -35,3 +68,27 @@ npm run dev
 ```
 5. Una vez levantado, acceder a la URL que aparece en la consola: 
 Ejemplo: `http://localhost:5173/`
+
+## 3.- Despliegue
+Para el despliegue se utilizará :[Cloudflare](https://www.cloudflare.com/es-es/):
+
+1. Registrarse al sitio web de Cloudflare:
+![Registro](/public/ReadmeImages/Cloud1.PNG)
+
+2. Una vez registrados, iniciamos sesión y nos vamos a la sección 'Workers and Pages', en donde tendremos
+que importar un repositorio de Github, para poder comenzar el despliegue. (Tendremos que iniciar sesión de ser necesario y dar permisos a Cloudflare para que pueda configurar nuestros repositorios)
+
+![Github](/public/ReadmeImages/Cloud2.PNG)
+
+3. Una vez seleccionado el repositorio que queremos desplegar, tendremos que configurar los parámetros del proyecto para el despligue (Nombre del proyecto, comando de compilación, rama, etc.)
+
+![Config](/public/ReadmeImages/Cloud3.PNG)
+
+4. Una vez configurados, tendremos que esperar a que se configure el worker para que el despliegue se pueda realizar y ejecute los comandos
+
+![Config2](/public/ReadmeImages/Config2.PNG)
+
+5. Si damos clic en "Continuar con el proyecto" nos llevará a nuestro panel donde podremos ver las implementaciones de nuestro proyecto. Si damos clic en `ver la versión` nos llevará a nuestra página.
+
+![Page](/public/ReadmeImages/Page.PNG)
+De momento no veremos nada, pero una vez terminado el proceso podremos usar nuestra aplicación accediendo por el enlace mencionado.
