@@ -6,7 +6,6 @@ type GroupedEventsProps = {
     groupedData: Record<string, EventType[]>;
 }
 
-
 const GroupedEvents = (props: GroupedEventsProps) => {
     const { groupedData } = props
 
@@ -24,6 +23,5 @@ const GroupedEvents = (props: GroupedEventsProps) => {
         </div>
     );
 };
-
 
 export default GroupedEvents;
